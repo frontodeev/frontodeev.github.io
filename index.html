@@ -14,10 +14,24 @@ body {
  justify-content: center;
  align-items: center;
 }
+ 
+ .btns {
+  display: flex;
+  flex-direction: column;
+ }
+ 
+ .btns > button {
+  margin: 8px;
+  padding: 6px;
+ }
 </style>
 </head>
 <body>
 <div class="root">Test test test</div>
+ <div class="btns"> 
+  <button id="btnA">CLICK AAA</button>
+  <button id="btnB">CLICK BBB</button>
+ </div>
 
 <!-- Top.Mail.Ru counter -->
 <script type="text/javascript">
@@ -33,5 +47,17 @@ _tmr.push({id: "3331325", type: "pageView", start: (new Date()).getTime(), ecom:
 </script>
 <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3331325;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
 <!-- /Top.Mail.Ru counter -->
+ 
+ <script>
+  btnA.addEventListener('click', () => {
+   _tmr.push({ type: 'reachGoal', id: 3331325, value: 123, goal: 'AAA'});
+   console.log('OK');
+  });
+  
+   btnB.addEventListener('click', () => {
+   _tmr.push({ type: 'reachGoal', id: 3331325, value: 123, goal: 'BBB'});
+   console.log('OK');
+  });
+ </script>
 </body>
 </html>
