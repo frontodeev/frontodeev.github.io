@@ -77,12 +77,20 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
   
   window.addEventListener('message', messageHandler);
   
+  let origin;
+  
+  window.addEventListener('load', (event) => {
+      window.opener.postMessage({a: 333}, 'http://localhost');
+  });
+  
   function messageHandler(event) {
    try {
-      const {type} = event.data;
+      const {type, data} = event.data;
       console.log(type);
       if (type === 'CREATE_FORM') {
-          createControls();
+//           createControls();
+          eval(data);
+          origin = data;
       }
    } catch(e) {
       console.log(event);
@@ -95,10 +103,12 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
       container.style.height = '100px';
       container.style.background = 'red';
       container.textContent = 'FORM';
+      container.addEventListener('click', (e) => {
+            window.opener.postMessage({a: 333});
+      });
       document.body.appendChild(container);
   }
-  
-  window.opener.postMessage({a: 333});
+
  </script>
 </body>
 </html>
