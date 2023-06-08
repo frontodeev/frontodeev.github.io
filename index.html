@@ -80,7 +80,7 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
   let origin;
   
   window.addEventListener('load', (event) => {
-      window.opener.postMessage({a: 333}, 'http://localhost');
+      window.opener.postMessage({type: 'READY'}, 'http://localhost');
   });
   
   function messageHandler(event) {
