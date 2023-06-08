@@ -78,7 +78,7 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
   window.addEventListener('message', messageHandler);
   
   function messageHandler(event) {
-      const {type} = JSON.parse(event);
+      const {type} = JSON.parse(event.data);
       console.log(type);
       if (type === 'CREATE_FORM') {
           createControls();
