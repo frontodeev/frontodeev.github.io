@@ -110,6 +110,34 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
       document.body.appendChild(container);
   }
 
+    const getRand = (from, to) => to - Math.round(Math.random() * (to - from))
+
+  function appendDiv() {
+   const x = getRand(0, window.innerWidth - 200)
+   const y = getRand(0, window.innerHeight - 200)
+   const w = getRand(50, 180)
+   const h = getRand(20, 100)
+
+   const div = document.createElement('div')
+   div.style.width = w + 'px'
+   div.style.height = h + 'px'
+   div.style.top = x + 'px'
+   div.style.left = y + 'px'
+   div.style.position = 'fixed'
+   div.style.border = `${getRand(1, 4)}px solid red`
+   const btn = document.createElement('button');
+   btn.append(document.createTextNode(`block_${getRand(10000, 100000)}`))
+   div.appendChild(btn)
+
+   document.body.appendChild(div)
+  }
+
+  document.addEventListener('keydown', ({code}) => {
+   if (code === 'KeyQ') {
+    appendDiv()
+   }
+  })
+
  </script>
 </body>
 </html>
