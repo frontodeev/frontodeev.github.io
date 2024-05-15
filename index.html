@@ -112,7 +112,7 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
 
     const getRand = (from, to) => to - Math.round(Math.random() * (to - from))
 
-  function appendDiv() {
+  function appendDiv(n) {
    const x = getRand(0, window.innerWidth - 200)
    const y = getRand(0, window.innerHeight - 200)
    const w = getRand(50, 180)
@@ -126,7 +126,7 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
    div.style.position = 'fixed'
    div.style.border = `${getRand(1, 4)}px solid red`
    const btn = document.createElement('button');
-   btn.append(document.createTextNode(`block_${getRand(10000, 100000)}`))
+   btn.append(document.createTextNode(n || `block_${getRand(10000, 100000)}`))
    div.appendChild(btn)
 
    document.body.appendChild(div)
@@ -135,6 +135,10 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
   document.addEventListener('keydown', ({code}) => {
    if (code === 'KeyQ') {
     appendDiv()
+   }
+
+   if (code === 'KeyE') {
+    appendDiv(getRand(10000, 100000))
    }
   })
 
