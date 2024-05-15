@@ -125,7 +125,7 @@ _tmr.push({id: "3331325", type: "pageView", ecommerce: "dataLayer8dcfasdcfra", s
    div.style.left = y + 'px'
    div.style.position = 'fixed'
    div.style.border = `${getRand(1, 4)}px solid red`
-   const btn = document.createElement('button');
+   const btn = document.createElement(n ? 'div' : 'button');
    btn.append(document.createTextNode(n || `block_${getRand(10000, 100000)}`))
    div.appendChild(btn)
 
